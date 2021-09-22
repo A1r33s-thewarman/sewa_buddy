@@ -28,7 +28,13 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_gallery">Profile</string>
+    <string name="menu_slideshow">Exit</string>
     <string name="title_activity_navigation">navigation</string>
+    <string name="fullname">Sample User</string>
+    <string name="useremail">sample email</string>
+    <string name="updateform">Please Update Your Details</string>
+    <string name="exit">Are You Sure You Want To Exit?</string>
+    <string name="yesbutton">Yes</string>
+    <string name="nobutton">No</string>
 </resources>

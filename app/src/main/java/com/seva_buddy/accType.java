@@ -25,6 +25,6 @@ public class accType extends AppCompatActivity {
     }
 
     public void openAccCreate() {
-        Intent intent = new Intent(this, AccountCreation.class);
+        Intent intent = new Intent(this, NavigationActivity.class);
         startActivity(intent);    }
 }
