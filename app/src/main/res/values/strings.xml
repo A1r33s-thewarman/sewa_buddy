@@ -37,4 +37,5 @@
     <string name="exit">Are You Sure You Want To Exit?</string>
     <string name="yesbutton">Yes</string>
     <string name="nobutton">No</string>
+    <string name="title_activity_provider_nav">ProviderNav</string>
 </resources>

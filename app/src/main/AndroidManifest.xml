@@ -4,29 +4,34 @@
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication.NoActionBar"
-        android:hardwareAccelerated="false"
-        android:largeHeap="true">
+        android:theme="@style/Theme.MyApplication.NoActionBar" >
         <activity
-            android:name="com.seva_buddyv2.NavigationActivity"
+            android:name=".ProviderNav"
+            android:exported="true"
+            android:label="@string/title_activity_provider_nav"
+            android:theme="@style/Theme.MyApplication.NoActionBar.NoActionBar" />
+        <activity
+            android:name=".NavigationActivity"
             android:label="@string/title_activity_navigation"
             android:theme="@style/Theme.MyApplication.NoActionBar" >
         </activity>
-        <activity android:name="com.seva_buddyv2.accType" />
-        <activity android:name="com.seva_buddyv2.AccountCreation" />
-        <activity android:name="com.seva_buddyv2.provider_AccountCreation" />
-        <activity android:name="com.seva_buddyv2.SplashActivity" >
+        <activity android:name=".accType" />
+        <activity android:name=".AccountCreation" />
+        <activity android:name=".provider_AccountCreation" />
+        <activity android:name=".SplashActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.seva_buddyv2.MainActivity" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
