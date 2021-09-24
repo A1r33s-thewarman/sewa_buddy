@@ -29,7 +29,7 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Profile</string>
-    <string name="menu_slideshow">Exit</string>
+    <string name="menu_slideshow">Appointments</string>
     <string name="title_activity_navigation">navigation</string>
     <string name="fullname">Sample User</string>
     <string name="useremail">sample email</string>
