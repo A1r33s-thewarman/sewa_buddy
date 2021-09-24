@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "823190081121",
+    "project_id": "seva-buddyv2",
+    "storage_bucket": "seva-buddyv2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823190081121:android:e0944b808cb8ec85576420",
+        "android_client_info": {
+          "package_name": "com.seva_buddyv2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823190081121-q3tj6s99klqlfc2t310dkot2761nknsa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMV8ygo-ytx40HOn_nucdhkT_txC33SQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823190081121-q3tj6s99klqlfc2t310dkot2761nknsa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

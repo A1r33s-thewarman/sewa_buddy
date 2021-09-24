@@ -10,8 +10,7 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-     >
+    android:orientation="vertical">
 
 
 
@@ -113,26 +112,41 @@
                 android:layout_height="48dp"
                 android:ems="10"
                 android:inputType="textEmailAddress"
-                android:text="@string/email"
+                android:hint="@string/email"
+                android:textColor="#605C5C" />
+
+            <EditText
+                android:id="@+id/editTextnic"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="NIC"
                 android:textColor="#605C5C" />
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="14dp" />
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="120dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:shadowRadius="200"
-                android:soundEffectsEnabled="true"
-                android:text="@string/save"
-                app:cornerRadius="20dp" />
-
         </LinearLayout>
+
 
     </androidx.cardview.widget.CardView>
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:shadowRadius="200"
+        android:soundEffectsEnabled="true"
+        android:text="@string/save"
+        app:cornerRadius="20dp"
+        tools:visibility="visible" />
+
 </LinearLayout>
+
+
+
+
 </ScrollView>

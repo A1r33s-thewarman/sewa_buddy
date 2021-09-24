@@ -1,4 +1,4 @@
-package com.seva_buddy;
+package com.seva_buddyv2;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals( "com.seva_buddy", appContext.getPackageName() );
+        assertEquals( "com.seva_buddyv2", appContext.getPackageName() );
     }
 }

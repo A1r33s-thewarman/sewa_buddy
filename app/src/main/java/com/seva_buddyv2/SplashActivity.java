@@ -1,4 +1,4 @@
-package com.seva_buddy;
+package com.seva_buddyv2;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

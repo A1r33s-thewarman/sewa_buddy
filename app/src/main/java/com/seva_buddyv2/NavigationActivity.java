@@ -1,4 +1,4 @@
-package com.seva_buddy;
+package com.seva_buddyv2;
 
 import android.os.Bundle;
 import android.view.View;

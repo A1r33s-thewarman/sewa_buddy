@@ -81,6 +81,7 @@
         android:layout_height="31dp" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardprovider"
         android:layout_width="300dp"
         android:layout_height="200dp"
         android:layout_gravity="center"

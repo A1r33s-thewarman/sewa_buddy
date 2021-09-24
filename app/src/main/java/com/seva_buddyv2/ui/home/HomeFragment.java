@@ -1,20 +1,14 @@
-package com.seva_buddy.ui.home;
+package com.seva_buddyv2.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.MediaController;
-import android.widget.TextView;
-import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.seva_buddy.R;
+import com.seva_buddyv2.R;
 
 public class HomeFragment extends Fragment {
 
