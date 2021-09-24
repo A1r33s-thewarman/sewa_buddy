@@ -42,8 +42,10 @@ public class MainActivity extends AppCompatActivity {
 
         button = (ImageButton) findViewById( R.id.imageButton2 );
 imageView = (ImageView)findViewById( R.id.imageView );
+//firebase connection
         mAuth = FirebaseAuth.getInstance();
 
+        //google account fetch
         GoogleSignInOptions googleso = new GoogleSignInOptions.Builder( GoogleSignInOptions.DEFAULT_SIGN_IN )
                 .requestIdToken( getString( R.string.default_web_client_id ) )
                 .requestEmail()

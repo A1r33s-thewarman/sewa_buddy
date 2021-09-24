@@ -17,6 +17,7 @@ import com.seva_buddyv2.ui.register;
 
 public class provider_AccountCreation extends AppCompatActivity {
 EditText Name,address,phone_no,email,nic;
+//firebase connectivity
     private FirebaseAuth mAuth;
 
     FirebaseUser user;
@@ -25,6 +26,8 @@ EditText Name,address,phone_no,email,nic;
     Button buttonl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //input details
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_provider_account_creation);
         Name = (EditText)findViewById( R.id.editTextTextPersonName2);
@@ -43,6 +46,8 @@ EditText Name,address,phone_no,email,nic;
 
     }
     private void insert_data() {
+
+        //data insertion
 
         p_register = new provider_register();
 
