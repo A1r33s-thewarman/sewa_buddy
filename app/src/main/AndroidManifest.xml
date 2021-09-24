@@ -12,10 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication.NoActionBar" >
         <activity
+<<<<<<< Updated upstream
             android:name=".ProviderNav"
             android:exported="true"
             android:label="@string/title_activity_provider_nav"
             android:theme="@style/Theme.MyApplication.NoActionBar.NoActionBar" />
+=======
+            android:name=".ProviderNavigationActivity"
+            android:label="@string/title_activity_provider_navigation"
+            android:theme="@style/Theme.MyApplication.NoActionBar.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".Provider_Navigation"
+            android:label="@string/title_activity_provider__navigation"
+            android:theme="@style/Theme.MyApplication.NoActionBar.NoActionBar" >
+        </activity>
+>>>>>>> Stashed changes
         <activity
             android:name=".NavigationActivity"
             android:label="@string/title_activity_navigation"
