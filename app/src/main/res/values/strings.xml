@@ -42,5 +42,8 @@
 
     <string name="title_activity_provider__navigation">Provider_Navigation</string>
     <string name="title_activity_provider_navigation">Provider_Navigation</string>
+    <string name="enterappoint">Please Select Your Appointment</string>
+    <string name="dayselect">Select Date</string>
+    <string name="selecttime">Input Time</string>
 
 </resources>

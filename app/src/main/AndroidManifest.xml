@@ -11,11 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication.NoActionBar">
-        <activity android:name=".provide_home"></activity>
+        <activity
+            android:name=".make_appointment"
+            android:exported="true" />
+        <activity android:name=".provide_home" />
         <activity
             android:name=".NavigationActivity"
             android:label="@string/title_activity_navigation"
-            android:theme="@style/Theme.MyApplication.NoActionBar"></activity>
+            android:theme="@style/Theme.MyApplication.NoActionBar" />
         <activity android:name=".accType" />
         <activity android:name=".AccountCreation" />
         <activity android:name=".provider_AccountCreation" />
