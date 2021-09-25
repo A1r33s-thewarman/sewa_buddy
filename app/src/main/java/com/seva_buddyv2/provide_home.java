@@ -5,7 +5,11 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +23,7 @@ import java.util.List;
 
 public class provide_home extends AppCompatActivity implements  IAdapter.OnItemClickListener {
 RecyclerView re;
+    ImageButton buttonl;
     private IAdapter Iadapter;
     private DatabaseReference DatabaseRef;
     private ValueEventListener DBListener;
@@ -67,9 +72,23 @@ RecyclerView re;
         });
 
 
+        buttonl = (ImageButton)findViewById( R.id.imageView10);
+        buttonl.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                open_add();
+            }
+        });
 
 
     }
+
+    public void open_add() {
+        Toast.makeText( provide_home.this,"Clicked",Toast.LENGTH_SHORT ).show();
+        Intent intent = new Intent(this, provider_addnew.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public void onItemClick(int position) {

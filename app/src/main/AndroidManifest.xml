@@ -19,6 +19,7 @@
         <activity android:name=".accType" />
         <activity android:name=".AccountCreation" />
         <activity android:name=".provider_AccountCreation" />
+        <activity android:name=".provider_addnew" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
