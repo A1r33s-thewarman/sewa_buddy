@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView( R.layout.activity_main );
 
         button = (ImageButton) findViewById( R.id.imageButton2 );
-imageView = (ImageView)findViewById( R.id.imageView );
+imageView = (ImageView)findViewById( R.id.imageView2 );
 //firebase connection
         mAuth = FirebaseAuth.getInstance();
 
@@ -92,6 +92,7 @@ imageView = (ImageView)findViewById( R.id.imageView );
 
             GoogleSignInAccount acc = completedTask.getResult( ApiException.class );
             Toast.makeText( MainActivity.this, "Signed In Successfully", Toast.LENGTH_SHORT ).show();
+          //  openAccType();
             FirebaseGoogleAuth( acc );
         } catch (ApiException e) {
             Toast.makeText( MainActivity.this, "Error : " + e, Toast.LENGTH_SHORT ).show();
@@ -101,18 +102,22 @@ imageView = (ImageView)findViewById( R.id.imageView );
 
     private void FirebaseGoogleAuth(GoogleSignInAccount acct) {
         //check if the account is null
+
         if (acct != null) {
+            Toast.makeText( MainActivity.this, "taraa ", Toast.LENGTH_SHORT ).show();
             AuthCredential authCredential = GoogleAuthProvider.getCredential( acct.getIdToken(), null );
             mAuth.signInWithCredential( authCredential ).addOnCompleteListener( this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-
+                        Toast.makeText( MainActivity.this, "yasai ", Toast.LENGTH_SHORT ).show();
                         openAccType();
                     }
 
                 }
             } );
+        }else{
+            Toast.makeText( MainActivity.this, "wada nathuththo ", Toast.LENGTH_SHORT ).show();
         }
     }
 }

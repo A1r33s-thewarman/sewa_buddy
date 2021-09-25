@@ -64,7 +64,7 @@ EditText Name,address,phone_no,email,nic;
         p_register.setnic( nic.getText().toString()  );
 
         reference.child(user.getUid()).setValue(p_register);
-        Intent intent = new Intent( provider_AccountCreation.this, NavigationActivity.class);
+        Intent intent = new Intent( provider_AccountCreation.this, provide_home.class);
         startActivity(intent);
 
     }

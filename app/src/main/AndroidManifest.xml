@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.seva_buddyv2" >
+    package="com.seva_buddyv2">
 
     <application
         android:allowBackup="true"
@@ -10,33 +10,16 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication.NoActionBar" >
-        <activity
-<<<<<<< Updated upstream
-            android:name=".ProviderNav"
-            android:exported="true"
-            android:label="@string/title_activity_provider_nav"
-            android:theme="@style/Theme.MyApplication.NoActionBar.NoActionBar" />
-=======
-            android:name=".ProviderNavigationActivity"
-            android:label="@string/title_activity_provider_navigation"
-            android:theme="@style/Theme.MyApplication.NoActionBar.NoActionBar" >
-        </activity>
-        <activity
-            android:name=".Provider_Navigation"
-            android:label="@string/title_activity_provider__navigation"
-            android:theme="@style/Theme.MyApplication.NoActionBar.NoActionBar" >
-        </activity>
->>>>>>> Stashed changes
+        android:theme="@style/Theme.MyApplication.NoActionBar">
+        <activity android:name=".provide_home"></activity>
         <activity
             android:name=".NavigationActivity"
             android:label="@string/title_activity_navigation"
-            android:theme="@style/Theme.MyApplication.NoActionBar" >
-        </activity>
+            android:theme="@style/Theme.MyApplication.NoActionBar"></activity>
         <activity android:name=".accType" />
         <activity android:name=".AccountCreation" />
         <activity android:name=".provider_AccountCreation" />
-        <activity android:name=".SplashActivity" >
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

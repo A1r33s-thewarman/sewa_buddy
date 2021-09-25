@@ -37,10 +37,10 @@
     <string name="exit">Are You Sure You Want To Exit?</string>
     <string name="yesbutton">Yes</string>
     <string name="nobutton">No</string>
-<<<<<<< Updated upstream
+
     <string name="title_activity_provider_nav">ProviderNav</string>
-=======
+
     <string name="title_activity_provider__navigation">Provider_Navigation</string>
     <string name="title_activity_provider_navigation">Provider_Navigation</string>
->>>>>>> Stashed changes
+
 </resources>

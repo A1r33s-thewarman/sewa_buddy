@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="234dp"
+        android:layout_height="98dp"
+        app:srcCompat="@drawable/logo"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="2dp"
+        tools:ignore="MissingConstraints" />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Title"
+        android:textSize="15sp"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-3dp"
+        tools:layout_editor_absoluteY="100dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        tools:layout_editor_absoluteX="164dp"
+        tools:layout_editor_absoluteY="184dp"
+        tools:ignore="MissingConstraints"
+        android:backgroundTint="@color/white">
+
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="266dp"
+            android:layout_marginLeft="70dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/add" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="412dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="412dp">
+
+        <ImageView
+            android:id="@+id/imageView13"
+            android:layout_width="28dp"
+            android:layout_height="41dp"
+            app:srcCompat="@drawable/location" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Colombo, SriLanka" />
+
+    </LinearLayout>
+
+        <EditText
+            android:layout_marginTop="20dp"
+            android:id="@+id/editTextTextMultiLine2"
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:hint="Description"
+            android:ems="10"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="60dp"
+            android:hint="Price in Rs | eg: 3000/HR"
+            android:textSize="15sp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="-3dp"
+            tools:layout_editor_absoluteY="100dp" />
+
+        <Button
+            android:id="@+id/view"
+            android:layout_width="120dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:shadowRadius="200"
+            android:soundEffectsEnabled="true"
+            android:text="Add New"
+            app:cornerRadius="20dp" />
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
