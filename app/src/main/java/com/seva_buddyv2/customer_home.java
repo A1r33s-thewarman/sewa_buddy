@@ -28,14 +28,14 @@ public class customer_home extends AppCompatActivity implements  IAdapter.OnItem
         super.onCreate( savedInstanceState );
         setContentView(R.layout.provider_home);
         uploads = new ArrayList<>();
-        Iadapter = new IAdapter(provide_home.this, uploads);
+        Iadapter = new IAdapter(customer_home.this, uploads);
 
         // List<Upload> mAdapter = new ArrayList<>();
         re = findViewById(R.id.re);
         re.setHasFixedSize(true);
-        re.setLayoutManager(new LinearLayoutManager(provide_home.this));
+        re.setLayoutManager(new LinearLayoutManager(customer_home.this));
         re.setAdapter(Iadapter);
-        re.setLayoutManager(new GridLayoutManager(provide_home.this, 1));
+        re.setLayoutManager(new GridLayoutManager(customer_home.this, 1));
         // mUploads = new ArrayList<>();
 
         DatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
@@ -61,7 +61,7 @@ public class customer_home extends AppCompatActivity implements  IAdapter.OnItem
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(provide_home.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(customer_home.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                 //  ProgressCircle.setVisibility(View.INVISIBLE);
             }
         });
