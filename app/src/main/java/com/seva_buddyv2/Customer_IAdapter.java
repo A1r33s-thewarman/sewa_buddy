@@ -16,10 +16,10 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class Customer_IAdapter extends RecyclerView.Adapter<IAdapter.ImageViewHolder> {
+public class Customer_IAdapter extends RecyclerView.Adapter<Customer_IAdapter.ImageViewHolder> {
     private Context mContext;
     private List<Uploads> mUploads;
-    private IAdapter.OnItemClickListener mListener;
+    private Customer_IAdapter.OnItemClickListener mListener;
 
     public Customer_IAdapter(Context context, List<Uploads> uploads) {
         mContext = context;
@@ -28,12 +28,12 @@ public class Customer_IAdapter extends RecyclerView.Adapter<IAdapter.ImageViewHo
 
     @Override
     public Customer_IAdapter.ImageViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.provider_item, parent, false);
-        return new IAdapter.ImageViewHolder(v);
+        View v = LayoutInflater.from(mContext).inflate(R.layout.customer_item, parent, false);
+        return new Customer_IAdapter.ImageViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(IAdapter.ImageViewHolder holder, int position) {
+    public void onBindViewHolder(Customer_IAdapter.ImageViewHolder holder, int position) {
 
 
         Uploads uploadCurrent = mUploads.get(position);
@@ -75,7 +75,7 @@ public class Customer_IAdapter extends RecyclerView.Adapter<IAdapter.ImageViewHo
             location = itemView.findViewById( R.id.location );
             h_rate = itemView.findViewById( R.id.h_rate );
             title = itemView.findViewById(R.id.title);
-            imageView = itemView.findViewById(R.id.imgview99);
+            imageView = itemView.findViewById(R.id.imgviewcus);
             itemView.setOnClickListener(this);
             itemView.setOnCreateContextMenuListener(this);
         }
@@ -108,7 +108,7 @@ public class Customer_IAdapter extends RecyclerView.Adapter<IAdapter.ImageViewHo
 
     }
 
-    public void setOnItemClickListener(IAdapter.OnItemClickListener listener) {
+    public void setOnItemClickListener(Customer_IAdapter.OnItemClickListener listener) {
         mListener = listener;
     }
 }

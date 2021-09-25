@@ -17,21 +17,21 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class customer_home extends AppCompatActivity implements  IAdapter.OnItemClickListener {
+public class customer_home extends AppCompatActivity implements  Customer_IAdapter.OnItemClickListener {
     RecyclerView re;
-    private IAdapter Iadapter;
+    private Customer_IAdapter Iadapter;
     private DatabaseReference DatabaseRef;
     private ValueEventListener DBListener;
     private List<Uploads> uploads;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        setContentView(R.layout.provider_home);
+        setContentView(R.layout.customer_home);
         uploads = new ArrayList<>();
-        Iadapter = new IAdapter(customer_home.this, uploads);
+        Iadapter = new Customer_IAdapter(customer_home.this, uploads);
 
         // List<Upload> mAdapter = new ArrayList<>();
-        re = findViewById(R.id.re);
+        re = findViewById(R.id.cus_re);
         re.setHasFixedSize(true);
         re.setLayoutManager(new LinearLayoutManager(customer_home.this));
         re.setAdapter(Iadapter);
@@ -73,6 +73,6 @@ public class customer_home extends AppCompatActivity implements  IAdapter.OnItem
 
     @Override
     public void onItemClick(int position) {
-        Toast.makeText( provide_home.this,"Clicked"+position,Toast.LENGTH_SHORT ).show();
+        Toast.makeText( customer_home.this,"Clicked"+position,Toast.LENGTH_SHORT ).show();
     }
 }

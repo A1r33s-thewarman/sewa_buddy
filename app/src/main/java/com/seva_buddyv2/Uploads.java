@@ -5,12 +5,14 @@ public class Uploads {
     private String Location;
     private String H_rate;
     private String Rate;
+    private  String Key;
     private String Image_url;
     //private String mKey;
 
     public Uploads(){}
-    public  Uploads(String title,String location,String h_rate,String image_url,String rate){
+    public  Uploads(String title,String location,String h_rate,String image_url,String rate,String key){
         Title = title;
+        Key = key;
         Location = location;
         H_rate = h_rate;
         Rate = rate;
@@ -51,7 +53,11 @@ public class Uploads {
         Image_url = image_url;
     }
 
-
-
+    public String getKey() {
+        return  Key;
+    }
+    public void setKey(String key) {
+        Key = key;
+    }
 
 }

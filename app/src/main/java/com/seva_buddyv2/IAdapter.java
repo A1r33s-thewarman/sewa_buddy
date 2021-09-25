@@ -6,12 +6,16 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -20,7 +24,7 @@ public class IAdapter extends RecyclerView.Adapter<IAdapter.ImageViewHolder> {
     private Context mContext;
     private List<Uploads> mUploads;
     private IAdapter.OnItemClickListener mListener;
-
+    Context context;
     public IAdapter(Context context, List<Uploads> uploads) {
         mContext = context;
         mUploads = uploads;
@@ -46,7 +50,7 @@ public class IAdapter extends RecyclerView.Adapter<IAdapter.ImageViewHolder> {
 holder.h_rate.setText(h_rate );
 holder.location.setText( location );
 holder.rate.setRating( Float.parseFloat( rate ) );
-
+        holder.s_key.setText( uploadCurrent.getKey() );
          holder.title.setText(title);
         Picasso.get()
                 .load(uploadCurrent.getimage_url())
@@ -54,6 +58,7 @@ holder.rate.setRating( Float.parseFloat( rate ) );
                 .fit()
                 .centerCrop()
                 .into(holder.imageView);
+
 
 
     }
@@ -65,19 +70,32 @@ holder.rate.setRating( Float.parseFloat( rate ) );
 
     public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
             View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
-        public TextView title,location,h_rate;
+        public TextView title,location,h_rate,s_key;
         public RatingBar rate;
+        public Button delete;
         public ImageView imageView;
+        DatabaseReference nm;
 
         public ImageViewHolder(View itemView) {
             super(itemView);
+            s_key= itemView.findViewById( R.id.s_key );
             rate = itemView.findViewById( R.id.rate );
             location = itemView.findViewById( R.id.location );
             h_rate = itemView.findViewById( R.id.h_rate );
             title = itemView.findViewById(R.id.title);
             imageView = itemView.findViewById(R.id.imgview99);
+            delete = itemView.findViewById( R.id.delete69 );
             itemView.setOnClickListener(this);
             itemView.setOnCreateContextMenuListener(this);
+           // nm = FirebaseDatabase.getInstance("https://seva-buddyv2-default-rtdb.firebaseio.com").getReference("uploads");
+
+            delete.setOnClickListener( new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    nm = FirebaseDatabase.getInstance("https://seva-buddyv2-default-rtdb.firebaseio.com").getReference("uploads").child( s_key.getText().toString() );
+                    nm.getRef().removeValue();
+                }
+            } );
         }
 
         @Override

@@ -52,7 +52,16 @@
         tools:layout_editor_absoluteY="143dp"
         />
 
-
+    <Button
+        android:id="@+id/update_temp"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:shadowRadius="200"
+        android:soundEffectsEnabled="true"
+        android:text="Update Temp"
+        app:cornerRadius="20dp" />
 
 
 </LinearLayout>

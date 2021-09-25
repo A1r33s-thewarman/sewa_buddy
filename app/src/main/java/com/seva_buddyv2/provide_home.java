@@ -24,6 +24,7 @@ import java.util.List;
 public class provide_home extends AppCompatActivity implements  IAdapter.OnItemClickListener {
 RecyclerView re;
     ImageButton buttonl;
+    Button button2;
     private IAdapter Iadapter;
     private DatabaseReference DatabaseRef;
     private ValueEventListener DBListener;
@@ -52,7 +53,7 @@ RecyclerView re;
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Uploads upload = postSnapshot.getValue(Uploads.class);
-                  //  upload.setKey(postSnapshot.getKey());
+                   upload.setKey(postSnapshot.getKey());
                   //  String name = dataSnapshot.child(postSnapshot.getKey()).child("name").getValue().toString();
                   //  Toast.makeText(getActivity(), name, Toast.LENGTH_SHORT).show();
 
@@ -73,6 +74,7 @@ RecyclerView re;
 
 
         buttonl = (ImageButton)findViewById( R.id.imageView10);
+
         buttonl.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -80,12 +82,24 @@ RecyclerView re;
             }
         });
 
+        button2 = (Button)findViewById( R.id.update_temp);
+        button2.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                open_up();
+            }
+        });
+
 
     }
 
     public void open_add() {
-        Toast.makeText( provide_home.this,"Clicked",Toast.LENGTH_SHORT ).show();
         Intent intent = new Intent(this, provider_addnew.class);
+        startActivity(intent);
+    }
+    public void open_up() {
+        Toast.makeText( provide_home.this,"Clicked",Toast.LENGTH_SHORT ).show();
+        Intent intent = new Intent(this, provider_update.class);
         startActivity(intent);
     }
 
