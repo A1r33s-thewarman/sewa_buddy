@@ -92,7 +92,8 @@ holder.rate.setRating( Float.parseFloat( rate ) );
             delete.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    nm = FirebaseDatabase.getInstance("https://seva-buddyv2-default-rtdb.firebaseio.com").getReference("uploads").child( s_key.getText().toString() );
+                    nm = FirebaseDatabase.getInstance("https://seva-buddyv2-default-rtdb.firebaseio.com")
+                            .getReference("users").child( s_key.getText().toString() );
                     nm.getRef().removeValue();
                 }
             } );

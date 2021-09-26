@@ -47,8 +47,8 @@ public class customer_home extends AppCompatActivity implements  Customer_IAdapt
 
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Uploads upload = postSnapshot.getValue(Uploads.class);
-                    //  upload.setKey(postSnapshot.getKey());
-                    //  String name = dataSnapshot.child(postSnapshot.getKey()).child("name").getValue().toString();
+                      upload.setKey(postSnapshot.getKey());
+                      String name = dataSnapshot.child(postSnapshot.getKey()).child("uploads").getValue().toString();
                     //  Toast.makeText(getActivity(), name, Toast.LENGTH_SHORT).show();
 
                     uploads.add(upload);
