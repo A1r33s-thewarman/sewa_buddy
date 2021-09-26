@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication.NoActionBar">
         <activity
+            android:name=".admin_approve"
+            android:exported="true" />
+        <activity
+            android:name=".admin_home"
+            android:exported="true" />
+        <activity
             android:name=".make_appointment"
             android:exported="true" />
         <activity android:name=".provide_home" />
