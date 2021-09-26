@@ -5,7 +5,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -23,10 +26,22 @@ public class customer_home extends AppCompatActivity implements  Customer_IAdapt
     private DatabaseReference DatabaseRef;
     private ValueEventListener DBListener;
     private List<Uploads> uploads;
+    Button button2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate( savedInstanceState );
         setContentView(R.layout.customer_home);
+
+
+        button2 = (Button)findViewById( R.id.appoint);
+        button2.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                open_appo();
+            }
+        });
+
         uploads = new ArrayList<>();
         Iadapter = new Customer_IAdapter(customer_home.this, uploads);
 
@@ -69,6 +84,13 @@ public class customer_home extends AppCompatActivity implements  Customer_IAdapt
 
 
 
+
+    }
+
+    public void open_appo() {
+        Toast.makeText( customer_home.this,"Clicked",Toast.LENGTH_SHORT ).show();
+        Intent intent = new Intent(this, make_appointment.class);
+        startActivity(intent);
     }
 
     @Override
