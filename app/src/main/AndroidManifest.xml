@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication.NoActionBar">
         <activity
+<<<<<<< Updated upstream
+=======
+            android:name=".SplashActivity"
+            android:exported="true" />
+        <activity
+>>>>>>> Stashed changes
             android:name=".admin_approve"
             android:exported="true" />
         <activity
@@ -30,7 +36,7 @@
         <activity android:name=".provider_AccountCreation" />
         <activity android:name=".provider_addnew" />
         <activity android:name=".provider_update" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".Editcusprofile">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
