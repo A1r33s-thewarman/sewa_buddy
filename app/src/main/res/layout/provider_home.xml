@@ -44,6 +44,10 @@
         tools:layout_editor_absoluteY="100dp"
         tools:ignore="MissingConstraints" />
 
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/re"
         android:layout_width="match_parent"

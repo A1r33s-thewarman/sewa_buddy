@@ -60,4 +60,9 @@ public class Uploads {
         Key = key;
     }
 
+    public void setdate(String date) {
+    }
+
+    public void setmessage(String message) {
+    }
 }
