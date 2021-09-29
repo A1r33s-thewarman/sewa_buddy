@@ -102,16 +102,7 @@
             android:text="Delete"
             app:cornerRadius="20dp" />
 
-        <Button
-            android:id="@+id/view"
-            android:layout_marginLeft="12dp"
-            android:layout_width="120dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:shadowRadius="200"
-            android:soundEffectsEnabled="true"
-            android:text="View"
-            app:cornerRadius="20dp" />
+
 
         <Button
             android:id="@+id/update"

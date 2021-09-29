@@ -34,13 +34,6 @@ public class customer_home extends AppCompatActivity implements  Customer_IAdapt
         setContentView(R.layout.customer_home);
 
 
-        button2 = (Button)findViewById( R.id.appoint);
-        button2.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                open_appo();
-            }
-        });
 
         uploads = new ArrayList<>();
         Iadapter = new Customer_IAdapter(customer_home.this, uploads);

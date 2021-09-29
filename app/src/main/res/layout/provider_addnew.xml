@@ -46,6 +46,7 @@
             tools:layout_editor_absoluteY="100dp"
             tools:ignore="MissingConstraints" />
         <EditText
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:hint="Title"
@@ -83,6 +84,7 @@
             android:layout_height="41dp"
             app:srcCompat="@drawable/location" />
         <EditText
+            android:id="@+id/location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -99,6 +101,7 @@
             android:inputType="textMultiLine" />
 
         <EditText
+            android:id="@+id/price"
             android:layout_width="match_parent"
             android:layout_marginTop="20dp"
             android:layout_height="60dp"

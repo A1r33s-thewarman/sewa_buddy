@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,7 +24,7 @@ public class IAdapter extends RecyclerView.Adapter<IAdapter.ImageViewHolder> {
     private Context mContext;
     private List<Uploads> mUploads;
     private IAdapter.OnItemClickListener mListener;
-    Context context;
+
     public IAdapter(Context context, List<Uploads> uploads) {
         mContext = context;
         mUploads = uploads;
@@ -71,7 +72,7 @@ holder.rate.setRating( Float.parseFloat( rate ) );
             View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
         public TextView title,location,h_rate,s_key;
         public RatingBar rate;
-        public Button delete;
+        public Button delete,update;
         public ImageView imageView;
         DatabaseReference nm;
 
@@ -84,6 +85,7 @@ holder.rate.setRating( Float.parseFloat( rate ) );
             title = itemView.findViewById(R.id.title);
             imageView = itemView.findViewById(R.id.imgview99);
             delete = itemView.findViewById( R.id.delete69 );
+            update = itemView.findViewById( R.id.update );
             itemView.setOnClickListener(this);
             itemView.setOnCreateContextMenuListener(this);
            // nm = FirebaseDatabase.getInstance("https://seva-buddyv2-default-rtdb.firebaseio.com").getReference("uploads");
@@ -91,9 +93,17 @@ holder.rate.setRating( Float.parseFloat( rate ) );
             delete.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Toast.makeText(mContext,"deleting key :  "+s_key.getText().toString(),Toast.LENGTH_SHORT).show();
                     nm = FirebaseDatabase.getInstance("https://seva-buddyv2-default-rtdb.firebaseio.com")
-                            .getReference("users").child( s_key.getText().toString() );
+                            .getReference("uploads").child( s_key.getText().toString() );
                     nm.getRef().removeValue();
+                }
+            } );
+
+            update.setOnClickListener( new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(mContext,"deleting ",Toast.LENGTH_SHORT).show();
                 }
             } );
         }
