@@ -7,7 +7,9 @@ public class Uploads {
     private String Rate;
     private  String Key;
     private String Image_url;
-    //private String mKey;
+    private  String date;
+    private  String message;
+    private String desc;
 
     public Uploads(){}
     public  Uploads(String title,String location,String h_rate,String image_url,String rate,String key){
@@ -61,8 +63,14 @@ public class Uploads {
     }
 
     public void setdate(String date) {
+        date = date;
     }
 
     public void setmessage(String message) {
+        message = message;
+    }
+
+    public String getdesc() {
+        return  desc;
     }
 }

@@ -2,21 +2,23 @@ package com.seva_buddyv2;
 
 public class p_Upload {
     String Title;
-    String Img_url;
+    String Image_url;
     String Location;
     String Desc;
-    String Price;
+    String H_rate;
+    String  Rate;
 
     public p_Upload() {
         //empty constructor needed
     }
-    public p_Upload(String title, String img_url ,String location,String desc,String price) {
+    public p_Upload(String title, String image_url ,String location,String desc,String h_rate,String rate) {
 
         Title = title;
-        Img_url = img_url;
+        Image_url = image_url;
         Location = location;
         Desc = desc;
-        Price = price;
+        H_rate = h_rate;
+        Rate = rate;
     }
     public String getTitle() {
         return Title;
@@ -25,11 +27,11 @@ public class p_Upload {
         Title = title;
     }
 
-    public String getImg_url() {
-        return Img_url;
+    public String getImage_url() {
+        return Image_url;
     }
-    public void setImg_url(String img_url) {
-        Img_url = img_url;
+    public void setImage_url(String image_url) {
+        Image_url = image_url;
     }
 
     public String getLocation() {
@@ -46,13 +48,19 @@ public class p_Upload {
         Desc = desc;
     }
 
-    public String getPrice() {
-        return Price;
+    public String getH_rate() {
+        return H_rate;
     }
-    public void setPrice(String price) {
-        Price = price;
+    public void setH_rate(String h_rate) {
+        H_rate = h_rate;
     }
 
+    public String getRate() {
+        return Rate;
+    }
+    public void setRate(String rate) {
+        Rate = rate;
+    }
 
 
 

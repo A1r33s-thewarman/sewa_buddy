@@ -2,9 +2,11 @@ package com.seva_buddyv2;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -43,6 +45,24 @@ EditText Name,address,phone_no,email;
     private void insert_data() {
 
         register = new register();
+
+        if (TextUtils.isEmpty(email.getText().toString())) {
+            Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (TextUtils.isEmpty(Name.getText().toString())) {
+            Toast.makeText(getApplicationContext(), "Please enter name!", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (TextUtils.isEmpty(address.getText().toString())) {
+            Toast.makeText(getApplicationContext(), "Please enter address!", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if (TextUtils.isEmpty(phone_no.getText().toString())) {
+            Toast.makeText(getApplicationContext(), "Please enter phone no!", Toast.LENGTH_LONG).show();
+            return;
+        }
+
 
 
         mAuth = FirebaseAuth.getInstance();

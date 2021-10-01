@@ -120,7 +120,11 @@ imageView = (ImageView)findViewById( R.id.imageView2 );
                     if (task.isSuccessful()) {
 
                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+<<<<<<< Updated upstream
                         if (user.getEmail().equals("dinithkaushalya55@gmail.com")) {
+=======
+                        if (user.getEmail().equals("harshaerandikaofficials@gmail.com")) {
+>>>>>>> Stashed changes
 
                             Intent intent = new Intent(getApplication(), admin.class);
                             startActivity(intent);
@@ -136,7 +140,11 @@ imageView = (ImageView)findViewById( R.id.imageView2 );
                 }
             } );
         }else{
+<<<<<<< Updated upstream
          //   Toast.makeText( MainActivity.this, "wada nathuththo ", Toast.LENGTH_SHORT ).show();
+=======
+         //   Toast.makeText( MainActivity.this, "not working ", Toast.LENGTH_SHORT ).show();
+>>>>>>> Stashed changes
         }
     }
 
@@ -148,7 +156,11 @@ imageView = (ImageView)findViewById( R.id.imageView2 );
 
         if (user != null) {
 
+<<<<<<< Updated upstream
             if (user.getEmail().equals("dinithkaushalya55@gmail.com")) {
+=======
+            if (user.getEmail().equals("harshaerandikaofficials@gmail.com")) {
+>>>>>>> Stashed changes
 
                 Intent intent = new Intent(getApplication(), admin.class);
                 startActivity(intent);

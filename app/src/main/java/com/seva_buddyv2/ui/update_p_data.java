@@ -1,13 +1,12 @@
-package com.seva_buddyv2;
+package com.seva_buddyv2.ui;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentResolver;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
@@ -17,33 +16,27 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.seva_buddyv2.R;
+import com.seva_buddyv2.p_Upload;
+import com.seva_buddyv2.provider_addnew;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class provider_addnew extends AppCompatActivity {
+public class update_p_data extends AppCompatActivity {
     ImageButton imageButton;
     private static final int PICK_IMAGE_REQUEST = 1;
     private StorageTask mUploadTask;
@@ -52,15 +45,14 @@ public class provider_addnew extends AppCompatActivity {
     private StorageReference mStorageRef;
     Button upload;
     String l_name;
-    EditText title,editTextTextMultiLine2,price;
     Spinner location;
-    private FirebaseAuth mAuth;
+    EditText title,editTextTextMultiLine2,price;
 
-    FirebaseUser user;
+    String  Key,H_rate,img_url,Location,Rate,Title,Desc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.provider_addnew);
+        setContentView(R.layout.activity_update_p_data);
 
         imageButton = (ImageButton)findViewById( R.id.imageButton ) ;
         title = (EditText)findViewById( R.id.title );
@@ -68,11 +60,6 @@ public class provider_addnew extends AppCompatActivity {
         editTextTextMultiLine2 = (EditText)findViewById( R.id.editTextTextMultiLine2 );
         price= (EditText)findViewById( R.id.price );
         upload = (Button) findViewById( R.id.view ) ;
-        mStorageRef = FirebaseStorage.getInstance().getReference("ads");
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("ads");
-
-        mAuth = FirebaseAuth.getInstance();
-        user = mAuth.getCurrentUser();
 
 
         List<String> list2 = new ArrayList<String>();
@@ -103,7 +90,6 @@ public class provider_addnew extends AppCompatActivity {
         list2.add("Trincomalee");
         list2.add("Vavuniya");
 
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list2){
             @Override
             public View getView(int position, View convertView, @NonNull ViewGroup parent) {
@@ -126,9 +112,10 @@ public class provider_addnew extends AppCompatActivity {
         location.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
                 l_name = parent.getItemAtPosition(position).toString();
 
-                Toast.makeText(provider_addnew.this,l_name,Toast.LENGTH_SHORT).show();
+                Toast.makeText(update_p_data.this,l_name,Toast.LENGTH_SHORT).show();
 
 
             }
@@ -140,6 +127,29 @@ public class provider_addnew extends AppCompatActivity {
         });
 
 
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            img_url = extras.getString("img_url");
+            Key = extras.getString("key3");
+            Location = extras.getString("location");
+            H_rate = extras.getString("h_rate");
+            Title = extras.getString("title");
+            Desc = extras.getString("desc");
+
+        }
+
+        mStorageRef = FirebaseStorage.getInstance().getReference("ads");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference("ads");
+
+        title.setText(Title);
+        //location.setText(Location);
+
+
+        editTextTextMultiLine2.setText(Desc);
+        price.setText(H_rate);
+
+        Picasso.get().load(img_url).placeholder(R.mipmap.ic_launcher).fit().centerCrop().into(imageButton);
 
         upload.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -181,6 +191,7 @@ public class provider_addnew extends AppCompatActivity {
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
     private void uploadfile() {
+
         if (mImageUri != null) {
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
                     + "." + getFileurl(mImageUri));
@@ -189,7 +200,7 @@ public class provider_addnew extends AppCompatActivity {
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
 
-                    Toast.makeText(provider_addnew.this, "Upload successful", Toast.LENGTH_LONG).show();
+                    Toast.makeText(update_p_data.this, "Upload successful", Toast.LENGTH_LONG).show();
 
 
                     taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(
@@ -201,11 +212,11 @@ public class provider_addnew extends AppCompatActivity {
 
 
 
-                                        p_Upload upload = new p_Upload(title.getText().toString(),imglink,l_name,editTextTextMultiLine2.getText().toString(),price.getText().toString(),"0");
+                                    p_Upload upload = new p_Upload(title.getText().toString(),imglink,l_name,editTextTextMultiLine2.getText().toString(),price.getText().toString(),"0");
 
-                                        String uploadId = mDatabaseRef.push().getKey();
 
-                                        mDatabaseRef.child(uploadId).setValue(upload);
+
+                                    mDatabaseRef.child(Key).setValue(upload);
 
 
 
@@ -219,7 +230,7 @@ public class provider_addnew extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(provider_addnew.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(update_p_data.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -228,7 +239,20 @@ public class provider_addnew extends AppCompatActivity {
 
 
         else {
-            Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
+            if(img_url !=null){
+
+                String imglink = img_url;
+
+
+
+                p_Upload upload = new p_Upload(title.getText().toString(),imglink,l_name,editTextTextMultiLine2.getText().toString(),price.getText().toString(),"0");
+
+
+
+                mDatabaseRef.child(Key).setValue(upload);
+
+
+            }
         }
     }
 

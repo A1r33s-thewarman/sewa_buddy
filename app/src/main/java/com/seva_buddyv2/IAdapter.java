@@ -100,7 +100,11 @@ holder.rate.setRating( Float.parseFloat( rate ) );
                     Toast.makeText(mContext,"deleting key :  "+s_key.getText().toString(),Toast.LENGTH_SHORT).show();
                     nm = FirebaseDatabase.getInstance("https://seva-buddyv2-default-rtdb.firebaseio.com")
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                             .getReference("uploads").child( s_key.getText().toString() );
+=======
+                            .getReference("ads").child( s_key.getText().toString() );
+>>>>>>> Stashed changes
 =======
                             .getReference("ads").child( s_key.getText().toString() );
 >>>>>>> Stashed changes
@@ -112,8 +116,11 @@ holder.rate.setRating( Float.parseFloat( rate ) );
                 @Override
                 public void onClick(View view) {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     Toast.makeText(mContext,"deleting ",Toast.LENGTH_SHORT).show();
 =======
+=======
+>>>>>>> Stashed changes
 
                     Uploads uploads = mUploads.get(Integer.parseInt(positon2.getText().toString()));
 
@@ -127,6 +134,9 @@ holder.rate.setRating( Float.parseFloat( rate ) );
                     i.putExtra("title",uploads.gettitle());
                     i.putExtra("desc",uploads.getdesc());
                     mContext.startActivity(i);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                 }
             } );
