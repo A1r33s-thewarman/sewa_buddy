@@ -6,6 +6,11 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id="@+id/viewo"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/r_bg"
         android:layout_width="match_parent"
         android:layout_height="200dp">
 
@@ -49,6 +54,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="Colombo, SriLanka" />
+
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/key"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp" />
             </LinearLayout>
 
             <RatingBar

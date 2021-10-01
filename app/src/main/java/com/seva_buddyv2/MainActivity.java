@@ -22,17 +22,26 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.seva_buddyv2.ui.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton button;
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
-    ImageView imageView;
+    ImageView imageView,imageButton2;
     private int RC_SIGN_IN = 1;
     private FirebaseAuth firebaseAuth;
+    private DatabaseReference DatabaseRef;
+    private ValueEventListener DBListener;
     FirebaseUser user;
+    String uid;
+    int count = 0;
     DatabaseReference reference;
 
     @Override
@@ -40,7 +49,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_main );
 
+
+        checklogin();
+
         button = (ImageButton) findViewById( R.id.imageButton2 );
+     //   imageButton2= (ImageView)findViewById( R.id.imageButton2 );
 imageView = (ImageView)findViewById( R.id.imageView2 );
 //firebase connection
         mAuth = FirebaseAuth.getInstance();
@@ -53,16 +66,11 @@ imageView = (ImageView)findViewById( R.id.imageView2 );
 
         mGoogleSignInClient = GoogleSignIn.getClient( this, googleso );
 
-        imageView.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                register_user();
-            }
-        } );
+
         button.setOnClickListener( new View.OnClickListener() {
             public void onClick(View v) {
 
-
+                register_user();
 
             }
         } );
@@ -104,20 +112,104 @@ imageView = (ImageView)findViewById( R.id.imageView2 );
         //check if the account is null
 
         if (acct != null) {
-            Toast.makeText( MainActivity.this, "taraa ", Toast.LENGTH_SHORT ).show();
+
             AuthCredential authCredential = GoogleAuthProvider.getCredential( acct.getIdToken(), null );
             mAuth.signInWithCredential( authCredential ).addOnCompleteListener( this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        Toast.makeText( MainActivity.this, "yasai ", Toast.LENGTH_SHORT ).show();
-                        openAccType();
+
+                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                        if (user.getEmail().equals("dinithkaushalya55@gmail.com")) {
+
+                            Intent intent = new Intent(getApplication(), admin.class);
+                            startActivity(intent);
+                            finish();
+
+
+                        }else {
+                            openAccType();
+                        }
+
                     }
 
                 }
             } );
         }else{
-            Toast.makeText( MainActivity.this, "wada nathuththo ", Toast.LENGTH_SHORT ).show();
+         //   Toast.makeText( MainActivity.this, "wada nathuththo ", Toast.LENGTH_SHORT ).show();
         }
     }
+
+    private void checklogin() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
+
+
+        if (user != null) {
+
+            if (user.getEmail().equals("dinithkaushalya55@gmail.com")) {
+
+                Intent intent = new Intent(getApplication(), admin.class);
+                startActivity(intent);
+                finish();
+
+
+            }else {
+
+
+                DatabaseRef = FirebaseDatabase.getInstance().getReference("users").child("provider");
+                DBListener = DatabaseRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+
+                            uid = postSnapshot.getKey().toString();
+
+
+                            if (uid.equals(user.getUid().toString())) {
+                                count = 1;
+
+                            } else {
+
+                            }
+
+
+                        }
+                        if (count == 0) {
+                            Intent intent = new Intent(getApplication(), NavigationActivity.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Intent intent = new Intent(getApplication(), provide_home.class);
+                            startActivity(intent);
+                            finish();
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Toast.makeText(getApplication(), databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                        //  ProgressCircle.setVisibility(View.INVISIBLE);
+                    }
+                });
+
+
+            }
+
+        }
+
+        else {
+
+
+        }
+
+
+
+    }
+
 }

@@ -1,17 +1,20 @@
 package com.seva_buddyv2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.seva_buddyv2.ui.home.view_ad;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -41,11 +44,11 @@ public class Customer_IAdapter extends RecyclerView.Adapter<Customer_IAdapter.Im
         String h_rate = uploadCurrent.geth_rate();
         String location = uploadCurrent.getlocation();
         String rate = uploadCurrent.getrate();
-
+holder.key.setText(String.valueOf(position));
         String title = uploadCurrent.gettitle();
         holder.h_rate.setText(h_rate );
         holder.location.setText( location );
-        holder.rate.setRating( Float.parseFloat( rate ) );
+        holder.rate.setRating( 2 );
 
         holder.title.setText(title);
         Picasso.get()
@@ -65,19 +68,40 @@ public class Customer_IAdapter extends RecyclerView.Adapter<Customer_IAdapter.Im
 
     public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
             View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
-        public TextView title,location,h_rate;
+        public TextView title,location,h_rate,key;
         public RatingBar rate;
+        LinearLayout viewo;
         public ImageView imageView;
 
         public ImageViewHolder(View itemView) {
             super(itemView);
-            rate = itemView.findViewById( R.id.rate );
-            location = itemView.findViewById( R.id.location );
-            h_rate = itemView.findViewById( R.id.h_rate );
-            title = itemView.findViewById(R.id.title);
+            key= itemView.findViewById( R.id.key );
+            viewo = itemView.findViewById( R.id.viewo );
+            rate = itemView.findViewById( R.id.crate );
+            location = itemView.findViewById( R.id.clocation );
+            h_rate = itemView.findViewById( R.id.ch_rate );
+            title = itemView.findViewById(R.id.ctitle);
             imageView = itemView.findViewById(R.id.imgviewcus);
             itemView.setOnClickListener(this);
             itemView.setOnCreateContextMenuListener(this);
+
+            viewo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Uploads uploadCurrent = mUploads.get(Integer.parseInt(key.getText().toString()));
+
+                    Intent i = new Intent(mContext, view_ad.class);
+                    i.putExtra("key",uploadCurrent.getKey());
+                    i.putExtra("img",uploadCurrent.getimage_url());
+                    i.putExtra("desc",uploadCurrent.getdesc());
+                    i.putExtra("h_rate",uploadCurrent.geth_rate());
+                    i.putExtra("location",uploadCurrent.getlocation());
+                    i.putExtra("rate",uploadCurrent.getrate().toString());
+                    i.putExtra("title",uploadCurrent.gettitle());
+                    mContext.startActivity(i);
+                }
+            });
         }
 
         @Override

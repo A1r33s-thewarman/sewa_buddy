@@ -1,6 +1,7 @@
 package com.seva_buddyv2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.seva_buddyv2.ui.update_p_data;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -48,6 +50,7 @@ public class IAdapter extends RecyclerView.Adapter<IAdapter.ImageViewHolder> {
 
           String title = uploadCurrent.gettitle();
 holder.h_rate.setText(h_rate );
+holder.positon2.setText(String.valueOf(position) );
 holder.location.setText( location );
 holder.rate.setRating( Float.parseFloat( rate ) );
         holder.s_key.setText( uploadCurrent.getKey() );
@@ -70,7 +73,7 @@ holder.rate.setRating( Float.parseFloat( rate ) );
 
     public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener,
             View.OnCreateContextMenuListener, MenuItem.OnMenuItemClickListener {
-        public TextView title,location,h_rate,s_key;
+        public TextView title,location,h_rate,s_key,positon2;
         public RatingBar rate;
         public Button delete,update;
         public ImageView imageView;
@@ -78,6 +81,7 @@ holder.rate.setRating( Float.parseFloat( rate ) );
 
         public ImageViewHolder(View itemView) {
             super(itemView);
+            positon2 = itemView.findViewById( R.id.positon2 );
             s_key= itemView.findViewById( R.id.s_key );
             rate = itemView.findViewById( R.id.rate );
             location = itemView.findViewById( R.id.location );
@@ -95,7 +99,11 @@ holder.rate.setRating( Float.parseFloat( rate ) );
                 public void onClick(View view) {
                     Toast.makeText(mContext,"deleting key :  "+s_key.getText().toString(),Toast.LENGTH_SHORT).show();
                     nm = FirebaseDatabase.getInstance("https://seva-buddyv2-default-rtdb.firebaseio.com")
+<<<<<<< Updated upstream
                             .getReference("uploads").child( s_key.getText().toString() );
+=======
+                            .getReference("ads").child( s_key.getText().toString() );
+>>>>>>> Stashed changes
                     nm.getRef().removeValue();
                 }
             } );
@@ -103,7 +111,23 @@ holder.rate.setRating( Float.parseFloat( rate ) );
             update.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+<<<<<<< Updated upstream
                     Toast.makeText(mContext,"deleting ",Toast.LENGTH_SHORT).show();
+=======
+
+                    Uploads uploads = mUploads.get(Integer.parseInt(positon2.getText().toString()));
+
+
+                    Intent i = new Intent(mContext, update_p_data.class);
+                    i.putExtra("key3",s_key.getText().toString());
+                    i.putExtra("h_rate",uploads.geth_rate());
+                    i.putExtra("img_url",uploads.getimage_url());
+                    i.putExtra("location",uploads.getlocation());
+                    i.putExtra("rate",uploads.getrate());
+                    i.putExtra("title",uploads.gettitle());
+                    i.putExtra("desc",uploads.getdesc());
+                    mContext.startActivity(i);
+>>>>>>> Stashed changes
                 }
             } );
         }

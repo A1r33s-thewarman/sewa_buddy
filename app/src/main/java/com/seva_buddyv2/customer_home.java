@@ -31,7 +31,7 @@ public class customer_home extends AppCompatActivity implements  Customer_IAdapt
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate( savedInstanceState );
-        setContentView(R.layout.customer_home);
+      //  setContentView(R.layout.customer_home);
 
 
 
